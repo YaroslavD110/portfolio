@@ -2,7 +2,16 @@
   "name": "tangerine",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.4.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js"
@@ -80,9 +89,8 @@
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
     "raf": "3.4.0",
-    "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
-    "react-dom": "^16.4.1",
+    "redux-logger": "^3.0.6",
     "resolve": "1.6.0",
     "sass-loader": "^7.0.3",
     "style-loader": "0.19.0",

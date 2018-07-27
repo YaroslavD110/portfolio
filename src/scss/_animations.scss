@@ -1,0 +1,43 @@
+// Transition classes
+.slide-transition {
+  &-enter {
+    animation: slideToggleEnter 1s linear;
+  }
+  &-exit {
+    animation: slideToggleExit 1s linear;
+  }
+}
+
+// Animations
+@keyframes slideToggleEnter {
+  0% {
+    transform: scale(0.8) translateX(100%);
+  }
+  90% {
+    transform: scale(0.8) translateX(0);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes slideToggleExit {
+  0% {
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  30% {
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    transform: scale(0.8) translateX(-50%);
+  }
+  100% {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    transform: scale(0.8) translateX(-100%);
+  }
+}
