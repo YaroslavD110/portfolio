@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
 import PropTypes from "prop-types";
 
 import TypingText from "../../TypingText";
@@ -17,7 +18,11 @@ class HomeHeader extends Component {
             можна знайти нижче :)
           </TypingText>
         </h1>
-        {this.state.showBtn && <button className="btn">CV</button>}
+        <CSSTransition in={this.state.showBtn} timeout={500} classNames="fade">
+          <div className="fade">
+            <button className="btn">CV</button>
+          </div>
+        </CSSTransition>
       </div>
     );
   }

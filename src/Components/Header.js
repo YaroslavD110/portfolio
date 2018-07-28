@@ -4,33 +4,34 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Navigation from "./Navigation";
 
-import pages from "./Pages";
-
 export default class Header extends Component {
   render() {
-    const { location } = this.props;
+    const { location, pages } = this.props;
 
     return (
       <header className="header">
-        <Navigation />
-        <TransitionGroup>
-          <CSSTransition
-            key={location.key}
-            classNames="slide-transition"
-            timeout={1000}
-          >
-            <Switch location={location}>
-              {pages.map(page => (
-                <Route
-                  exact
-                  key={page.name}
-                  path={page.path}
-                  component={page.headerComponent}
-                />
-              ))}
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
+        <div className="header-wrapper">
+          <Navigation />
+          <TransitionGroup>
+            <CSSTransition
+              key={location.key}
+              classNames="slide"
+              timeout={1000}
+              onExit={() => console.log(location)}
+            >
+              <Switch location={location}>
+                {pages.map(page => (
+                  <Route
+                    exact
+                    key={page.name}
+                    path={page.path}
+                    component={page.headerComponent}
+                  />
+                ))}
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
       </header>
     );
   }

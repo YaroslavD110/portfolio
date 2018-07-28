@@ -12,6 +12,8 @@ export class TypingText extends Component {
     onTyped: PropTypes.func
   };
 
+  timer;
+
   state = {
     element: [],
     counter: 1
@@ -23,7 +25,7 @@ export class TypingText extends Component {
     let element = [];
     let index = 0;
 
-    let timer = setInterval(() => {
+    this.timer = setInterval(() => {
       if (typeof children[index] === "string") {
         element[index] = children[index].slice(0, this.state.counter);
 
@@ -41,10 +43,14 @@ export class TypingText extends Component {
       }
 
       if (children[index] === undefined) {
-        clearInterval(timer);
+        clearInterval(this.timer);
         onTyped();
       }
     }, time);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {

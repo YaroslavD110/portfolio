@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import pages from "./Pages";
-
 export default class Header extends Component {
   render() {
-    const { location } = this.props;
+    const { location, pages } = this.props;
 
     return (
       <section>

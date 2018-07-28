@@ -4,6 +4,8 @@ import { Route } from "react-router-dom";
 import Header from "./Header";
 import Content from "./Content";
 
+import pages from "./Pages";
+
 export default class RouterController extends Component {
   render() {
     return (
@@ -11,8 +13,8 @@ export default class RouterController extends Component {
         <Route
           render={({ location }) => (
             <Fragment>
-              <Header location={location} />
-              <Content location={location} />
+              <Header location={location} pages={pages} />
+              <Content location={location} pages={pages} />
             </Fragment>
           )}
         />
