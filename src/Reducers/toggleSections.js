@@ -1,6 +1,6 @@
 import { TOGGLE_SECTION } from "../ActionTypes";
 
-import Home from "../Components/Pages/Home/index";
+import Home from "../Components/Pages/Home/Header";
 import Portfolio from "../Components/Pages/Portfolio/index";
 
 const initialState = {

@@ -1,13 +1,13 @@
-import Home from "./Home";
 import HomeHeader from "./Home/Header";
 import Portfolio from "./Portfolio";
 import PortfolioHeader from "./Portfolio/Header";
+import ContactsHeader from "./Contacts/Header";
 
 export default [
   {
     name: "Головна",
     path: "/",
-    pageComponent: Home,
+    pageComponent: null,
     headerComponent: HomeHeader
   },
   {
@@ -20,6 +20,6 @@ export default [
     name: "Контакти",
     path: "/contacts",
     pageComponent: null,
-    headerComponent: null
+    headerComponent: ContactsHeader
   }
 ];
