@@ -5,6 +5,7 @@
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.4.1",
     "react-particles-js": "^2.3.0",
     "react-router-dom": "^4.3.1",

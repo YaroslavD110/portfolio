@@ -13,7 +13,7 @@ export default class Header extends Component {
         <div className="header-wrapper">
           <Navigation />
           <TransitionGroup className="header-content__wrapper">
-            <CSSTransition key={location.key} classNames="slide" timeout={1000}>
+            <CSSTransition key={location.key} classNames="toggle" timeout={1000}>
               <Switch location={location}>
                 {pages.map(page => (
                   <Route

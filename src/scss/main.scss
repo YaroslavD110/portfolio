@@ -85,6 +85,10 @@ body {
   }
 }
 
+.accent-text {
+  color: $primary;
+}
+
 // Site parts
 @import "./parts/header";
 @import "./parts/portfolio";

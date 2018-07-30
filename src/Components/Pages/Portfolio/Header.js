@@ -1,14 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const PortfolioHeader = () => {
   return (
-    <div className="header-content header-home">
-      <h1>Portfolio Header</h1>
+    <div className="header-content header-content__portfolio">
+      <h1 className="header-content__portfolio-heading">Портфоліо</h1>
+      <div className="header-content__portfolio-mouse" />
     </div>
   );
 };
-
-PortfolioHeader.propTypes = {};
 
 export default PortfolioHeader;
