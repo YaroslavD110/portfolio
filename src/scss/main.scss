@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
 @import "./vars";
 @import "./animations";
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: $main-font;
   overflow-x: hidden;
 }
 
@@ -40,8 +40,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: $black;
-    border: 1px solid $white;
-    opacity: 0.5;
+    border: 1px solid $primary;
+    opacity: 0.7;
+    transition: border-color 0.4s linear;
   }
 
   &::after {
@@ -54,8 +55,8 @@ body {
     width: 0;
     opacity: 0;
     background-color: $primary;
-    transform: translate(-50%, -50%) rotate(45deg);
-    transition: all 0.8s linear;
+    transform: translate(-50%, -50%) rotate(46deg);
+    transition: all 0.4s linear;
   }
 
   &:hover {
@@ -65,6 +66,10 @@ body {
       opacity: 1;
       width: 100%;
       height: 300%;
+    }
+
+    &::before {
+      border-color: $primary;
     }
   }
 }
@@ -82,6 +87,5 @@ body {
 
 // Site parts
 @import "./parts/header";
-@import "./parts/home";
 @import "./parts/portfolio";
 @import "./parts/contacts";

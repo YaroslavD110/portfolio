@@ -12,13 +12,8 @@ export default class Header extends Component {
       <header className="header">
         <div className="header-wrapper">
           <Navigation />
-          <TransitionGroup>
-            <CSSTransition
-              key={location.key}
-              classNames="slide"
-              timeout={1000}
-              onExit={() => console.log(location)}
-            >
+          <TransitionGroup className="header-content__wrapper">
+            <CSSTransition key={location.key} classNames="slide" timeout={1000}>
               <Switch location={location}>
                 {pages.map(page => (
                   <Route
