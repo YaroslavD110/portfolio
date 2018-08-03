@@ -1,0 +1,111 @@
+.portfolio {
+  &-section {
+    padding-bottom: 50px;
+
+    &__header {
+      position: relative;
+      margin-top: 80px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 40px;
+    }
+
+    .works {
+      &-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        border-bottom: 1px solid $primary;
+
+        &__item {
+          cursor: pointer;
+          position: relative;
+          border: none;
+          color: $white; //$primary;
+          background-color: transparent;
+          font-size: 20px;
+          margin: 0 15px;
+          padding: 15px 25px;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background-color: $primary;
+            height: 100%;
+            width: 100%;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+          }
+
+          &:hover {
+            &::before {
+              animation-name: perspectiveDownReturn;
+            }
+          }
+        }
+      }
+
+      &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &__item {
+          position: relative;
+          height: 300px;
+          max-width: 48%;
+          flex-basis: 48%;
+          margin-top: 25px;
+          overflow: hidden;
+          background-color: $gray;
+          padding-top: 29px;
+          border-radius: 10px 10px 3px 3px;
+          box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.75);
+
+          .item {
+            &-header {
+              span {
+                position: absolute;
+                top: 8px;
+                left: 13px;
+                height: 12px;
+                width: 12px;
+                border-radius: 50%;
+
+                &:nth-child(1) {
+                  background-color: #ff5f58;
+                }
+
+                &:nth-child(2) {
+                  background-color: #ffbe2f;
+                  left: 35px;
+                }
+
+                &:nth-child(3) {
+                  background-color: #2ac940;
+                  left: 57px;
+                }
+              }
+            }
+
+            &-img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              object-position: center;
+
+              &__wrapper {
+                height: 100%;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

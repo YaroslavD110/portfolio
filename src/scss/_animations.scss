@@ -78,6 +78,18 @@
   }
   100% {
     opacity: 0;
-    top: 40px;
+    top: 35px;
+  }
+}
+
+@keyframes perspectiveDownReturn {
+  0% {
+    transform-origin: 0 100%;
+    transform: perspective(1000px) rotateX(90deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: perspective(1000px) rotateX(0deg);
   }
 }

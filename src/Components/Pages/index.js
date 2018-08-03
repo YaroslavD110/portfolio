@@ -1,5 +1,5 @@
 import HomeHeader from "./Home/Header";
-import Portfolio from "./Portfolio";
+import PortfolioContent from "./Portfolio/Content";
 import PortfolioHeader from "./Portfolio/Header";
 import ContactsHeader from "./Contacts/Header";
 
@@ -13,7 +13,7 @@ export default [
   {
     name: "Портфоліо",
     path: "/portfolio",
-    pageComponent: Portfolio,
+    pageComponent: PortfolioContent,
     headerComponent: PortfolioHeader
   },
   {
