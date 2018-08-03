@@ -28,12 +28,6 @@ class App extends Component {
         size: {
           value: 1.3
         }
-      },
-      interactivity: {
-        onhover: {
-          enable: true,
-          mode: "grab"
-        }
       }
     };
 
