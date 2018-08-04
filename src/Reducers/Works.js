@@ -1,10 +1,10 @@
-import { INIT_REQUEST, INIT_REQUEST_SUCCESS } from "../ActionTypes";
+import { WORKS_REQUEST, WORKS_REQUEST_SUCCESS } from "../ActionTypes";
 
 export default (state = [], { type, payload }) => {
   switch (type) {
-    case INIT_REQUEST:
+    case WORKS_REQUEST:
       return state;
-    case INIT_REQUEST_SUCCESS:
+    case WORKS_REQUEST_SUCCESS:
       return [...state, ...payload];
     default:
       return state;

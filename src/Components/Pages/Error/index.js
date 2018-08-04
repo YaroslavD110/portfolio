@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
 import NotFoundIcon from "../../../img/error-404.svg";
@@ -13,6 +14,10 @@ const ErrorHeader = ({ isGlobalError }) => (
     )}
   </div>
 );
+
+ErrorHeader.propTypes = {
+  isGlobalError: PropTypes.bool.isRequired
+};
 
 export default connect(state => ({
   isGlobalError: state.Error.isGlobalError

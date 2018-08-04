@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import TypingText from "../../TypingText";
 
@@ -31,13 +30,26 @@ const HomeHeader = () => {
         <div className="contacts-top__form-wrapper">
           <form className="contacts-top__form">
             <div className="form-input__wrapper">
-              <input type="text" name="name" placeholder="Введіть своє ім'я" className="form-input" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Введіть своє ім'я"
+                className="form-input"
+              />
             </div>
             <div className="form-input__wrapper">
-              <input type="email" name="email" placeholder="Введіть свою пошту" className="form-input" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Введіть свою пошту"
+                className="form-input"
+              />
             </div>
             <div className="form-textarea__wrapper">
-              <textarea placeholder="Введіть ваше повідоммлення" className="form-textarea" />
+              <textarea
+                placeholder="Введіть ваше повідоммлення"
+                className="form-textarea"
+              />
             </div>
             <button className="btn form-btn">Відправити</button>
           </form>
@@ -46,7 +58,5 @@ const HomeHeader = () => {
     </div>
   );
 };
-
-HomeHeader.propTypes = {};
 
 export default HomeHeader;

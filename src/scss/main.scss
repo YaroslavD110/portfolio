@@ -75,6 +75,7 @@ body {
   }
 }
 
+// Styles for particle bg
 .particle {
   &-wrapper {
     position: absolute;
@@ -86,18 +87,50 @@ body {
   }
 }
 
+// Styles for castom scrollbar
 .scrollbar {
   position: relative;
   z-index: 1;
 }
 
+// Style for accent text
 .accent-text {
   color: $primary;
 }
 
+// General styles for all sections
 .section {
   max-width: 1140px;
   margin: 0 auto;
+}
+
+// Styles for preloader
+.preloader {
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999999999;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+
+    .loader {
+      display: block;
+
+      .tree {
+        fill: $primary;
+      }
+
+      .circle-mask {
+        transform-origin: 50% 90%;
+        animation: scale 5s infinite ease-out;
+      }
+    }
+  }
 }
 
 // Site parts
