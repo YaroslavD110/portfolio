@@ -5,14 +5,14 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 
-import { GetWorks, GetPageSettings } from "../Actions/InitApp";
+import { GetWorksData, GetPageSettings } from "../Actions/InitApp";
 
 import RouteController from "./RouteController";
 import PagePreloader from "../Containers/PagePreloader";
 
 class App extends Component {
   componentDidMount() {
-    this.props.getWorks();
+    this.props.getWorksData();
     this.props.getPageSettings();
   }
 
@@ -62,7 +62,7 @@ export default connect(
     showPagePreloader: state.Preloader.showPagePreloader
   }),
   dispatch => ({
-    getWorks: () => dispatch(GetWorks()),
+    getWorksData: () => dispatch(GetWorksData()),
     getPageSettings: () => dispatch(GetPageSettings())
   })
 )(App);

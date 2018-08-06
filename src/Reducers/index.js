@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import Works from "./Works";
+import WorksData from "./WorksData";
 import Preloader from "./Preloader";
 import AppSettings from "./AppSettings";
-import Error from "./Error";
+import Errors from "./Errors";
 
-export default combineReducers({ Works, Preloader, AppSettings, Error });
+export default combineReducers({ WorksData, Preloader, AppSettings, Errors });

@@ -1,100 +1,62 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import img from "../../../img/vetclinic_template.jpg";
+import WorksList from "./Containers/WorksList";
+import ControlsList from "./Containers/ControlsList";
 
-export default class Portfolio extends Component {
+class Portfolio extends Component {
+  static propTypes = {
+    works: PropTypes.array,
+    categories: PropTypes.array
+  };
+
+  state = {
+    filteredWorks: this.props.works || [],
+    activeCategory: "all"
+  };
+
+  componentWillReceiveProps() {
+    this.setState({
+      filteredWorks: this.props.works
+    });
+  }
+
+  showAll = () =>
+    this.setState({ filteredWorks: this.props.works, activeCategory: "all" });
+
+  filterByCategory = categoryName =>
+    this.setState({
+      filteredWorks: this.props.works.filter(
+        work => work.category === categoryName
+      ),
+      activeCategory: categoryName
+    });
+
   render() {
+    const { filteredWorks, activeCategory } = this.state;
+    const { categories } = this.props;
+
     return (
       <div className="section portfolio-section">
         <h1 className="portfolio-section__header">
           Тут представленні мої роботи
         </h1>
         <div className="portfolio-section__works-wrapper">
-          <div className="works-controls">
-            <button className="works-controls__item">Всі</button>
-            <button className="works-controls__item">Верстка</button>
-            <button className="works-controls__item">Js проекти</button>
-          </div>
-          <div className="works-list">
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-
-            <div className="works-list__item">
-              <div className="item-header">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="item-img__wrapper">
-                <img src={img} alt="Work_image" className="item-img" />
-              </div>
-            </div>
-          </div>
+          <ControlsList
+            categories={categories}
+            activeCategory={activeCategory}
+            showAll={this.showAll}
+            filterByCategory={this.filterByCategory}
+          />
+          <WorksList works={filteredWorks} />
         </div>
       </div>
     );
   }
 }
+
+export default connect(state => ({
+  works: state.WorksData.works,
+  categories: state.WorksData.categories
+}))(Portfolio);

@@ -20,5 +20,5 @@ ErrorHeader.propTypes = {
 };
 
 export default connect(state => ({
-  isGlobalError: state.Error.isGlobalError
+  isGlobalError: state.Errors.isGlobalError
 }))(ErrorHeader);

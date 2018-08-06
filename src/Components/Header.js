@@ -72,7 +72,7 @@ class Header extends Component {
 
 export default connect(
   state => ({
-    isGlobalError: state.Error.isGlobalError,
+    isGlobalError: state.Errors.isGlobalError,
     headerBg: state.AppSettings.headerBg
   }),
   dispatch => ({

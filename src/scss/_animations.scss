@@ -104,18 +104,6 @@
   }
 }
 
-@keyframes perspectiveDownReturn {
-  0% {
-    transform-origin: 0 100%;
-    transform: perspective(1000px) rotateX(90deg);
-  }
-
-  100% {
-    transform-origin: 0 100%;
-    transform: perspective(1000px) rotateX(0deg);
-  }
-}
-
 @keyframes fadeOut {
   0% {
     opacity: 1;

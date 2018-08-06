@@ -20,30 +20,42 @@
         &__item {
           cursor: pointer;
           position: relative;
-          border: none;
-          color: $white; //$primary;
+          z-index: 1;
           background-color: transparent;
-          font-size: 20px;
+          border: none;
+          color: $primary;
+          padding: 10px 15px;
           margin: 0 15px;
-          padding: 15px 25px;
+          font-size: 18px;
+          transition: color 0.2s linear;
+          outline: none;
 
           &::before {
             content: "";
-            display: block;
             position: absolute;
             z-index: -1;
             top: 0;
             left: 0;
-            background-color: $primary;
             height: 100%;
-            width: 100%;
-            animation-duration: 1s;
-            animation-fill-mode: both;
+            width: 0;
+            background-color: $primary;
+            transform: skewX(30deg);
+            transition: width 0.35s linear;
           }
 
           &:hover {
+            color: $white;
+
             &::before {
-              animation-name: perspectiveDownReturn;
+              width: 100%;
+            }
+          }
+
+          &-active {
+            color: $white;
+
+            &::before {
+              width: 100%;
             }
           }
         }
@@ -57,9 +69,9 @@
         &__item {
           position: relative;
           height: 300px;
-          max-width: 48%;
-          flex-basis: 48%;
-          margin-top: 25px;
+          max-width: 46%;
+          flex-basis: 46%;
+          margin-top: 50px;
           overflow: hidden;
           background-color: $gray;
           padding-top: 29px;
@@ -68,6 +80,16 @@
 
           .item {
             &-header {
+              &__text {
+                position: absolute;
+                top: 6px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
+                font-size: 14px;
+                font-weight: 400;
+              }
+
               span {
                 position: absolute;
                 top: 8px;
@@ -99,8 +121,47 @@
               object-position: center;
 
               &__wrapper {
+                position: relative;
                 height: 100%;
                 width: 100%;
+
+                &:hover {
+                  .item-img__cover {
+                    opacity: 1;
+                    transform: scale(1);
+                  }
+                }
+              }
+
+              &__cover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: $primary;
+                opacity: 0;
+                animation-fill-mode: both;
+                animation-duration: 1s;
+                height: 100%;
+                width: 100%;
+                padding: 0 50px;
+                transform-origin: 50% 50%;
+                transform: scale(0.4);
+                transition: all 0.4s linear;
+
+                &-link {
+                  display: flex;
+                  align-items: center;
+                  text-decoration: none;
+                  color: $white;
+                  font-size: 20px;
+
+                  i {
+                    margin-right: 10px;
+                  }
+                }
               }
             }
           }
