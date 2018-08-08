@@ -5,7 +5,7 @@ export default class Work extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     sourceCodeLink: PropTypes.string.isRequired,
-    demoLink: PropTypes.string.isRequired,
+    demoLink: PropTypes.string,
     previewSrc: PropTypes.string.isRequired
   };
 
@@ -30,14 +30,16 @@ export default class Work extends PureComponent {
             >
               <i className="material-icons">code</i> Код роботи
             </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="item-img__cover-link"
-              href={demoLink}
-            >
-              <i className="material-icons">important_devices</i> Демо роботи
-            </a>
+            {demoLink !== undefined && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="item-img__cover-link"
+                href={demoLink}
+              >
+                <i className="material-icons">important_devices</i> Демо роботи
+              </a>
+            )}
           </div>
           <img src={previewSrc} alt="Work_image" className="item-img" />
         </div>

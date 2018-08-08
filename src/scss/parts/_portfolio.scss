@@ -117,7 +117,7 @@
             &-img {
               height: 100%;
               width: 100%;
-              object-fit: cover;
+              object-fit: fill;
               object-position: center;
 
               &__wrapper {
@@ -152,6 +152,7 @@
                 transition: all 0.4s linear;
 
                 &-link {
+                  position: relative;
                   display: flex;
                   align-items: center;
                   text-decoration: none;
@@ -159,7 +160,26 @@
                   font-size: 20px;
 
                   i {
-                    margin-right: 10px;
+                    margin-right: 3px;
+                  }
+
+                  &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -2px;
+                    left: 50%;
+                    height: 1px;
+                    width: 0;
+                    background-color: $white;
+                    transition: width 0.3s linear, left 0.3s linear;
+                  }
+
+                  &:hover {
+                    &::after {
+                      width: 100%;
+                      left: 0;
+                    }
                   }
                 }
               }
