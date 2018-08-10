@@ -4,10 +4,16 @@
 
     &__header {
       position: relative;
-      margin-top: 80px;
+      margin-top: 40px;
       text-align: center;
       font-weight: 300;
-      font-size: 40px;
+      font-size: 35px;
+      padding: 0 15px;
+
+      @include sm {
+        font-size: 40px;
+        margin-top: 80px;
+      }
     }
 
     .works {
@@ -26,7 +32,7 @@
           color: $primary;
           padding: 10px 15px;
           margin: 0 15px;
-          font-size: 18px;
+          font-size: 14px;
           transition: color 0.2s linear;
           outline: none;
 
@@ -58,6 +64,10 @@
               width: 100%;
             }
           }
+
+          @include sm {
+            font-size: 18px;
+          }
         }
       }
 
@@ -65,13 +75,13 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        padding: 0 15px;
 
         &__item {
           position: relative;
-          height: 300px;
-          max-width: 46%;
-          flex-basis: 46%;
-          margin-top: 50px;
+          max-width: 100%;
+          flex-basis: 100%;
+          margin-top: 30px;
           overflow: hidden;
           background-color: $gray;
           padding-top: 29px;
@@ -138,7 +148,8 @@
                 top: 0;
                 left: 0;
                 display: flex;
-                justify-content: space-around;
+                flex-direction: column;
+                justify-content: center;
                 align-items: center;
                 background-color: $primary;
                 opacity: 0;
@@ -158,6 +169,7 @@
                   text-decoration: none;
                   color: $white;
                   font-size: 20px;
+                  padding-bottom: 15px;
 
                   i {
                     margin-right: 3px;
@@ -181,10 +193,29 @@
                       left: 0;
                     }
                   }
+
+                  @include sm {
+                    padding-bottom: 0;
+                  }
+                }
+
+                @include sm {
+                  flex-direction: row;
+                  justify-content: space-around;
                 }
               }
             }
           }
+
+          @include xl {
+            max-width: 46%;
+            flex-basis: 46%;
+            margin-top: 50px;
+          }
+        }
+
+        @include xl {
+          padding: 0;
         }
       }
     }

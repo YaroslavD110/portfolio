@@ -3,27 +3,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 
     &__header {
       text-align: center;
       font-weight: 400;
-      min-height: 77px;
-      margin-top: 40px;
+      min-height: 92px;
+      margin-top: 25px;
       margin-bottom: 0;
+      font-size: 25px;
+      padding: 0 15px;
+
+      @include rwd(650) {
+        margin-top: 40px;
+        font-size: 2em;
+        min-height: 61px;
+      }
+
+      @include rwd(485) {
+        padding: 0;
+        min-height: 77px;
+      }
     }
 
     &__contact {
       display: flex;
       align-items: center;
-      margin: 0 auto;
+      flex-wrap: wrap;
+      margin: 0 auto 25px;
+      width: 100%;
 
       &-wrapper {
         display: flex;
         flex-wrap: wrap;
         width: 80%;
-        margin-top: 40px;
+        margin-top: 25px;
+
+        @include rwd(650) {
+          margin-top: 40px;
+        }
       }
 
       &-icon {
@@ -36,10 +55,23 @@
           top: 51%;
           left: 50%;
           z-index: -1;
-          width: 48px;
-          height: 48px;
+          width: 40px;
+          height: 40px;
           transform: translate(-50%, -50%) rotate(45deg);
           background-color: $primary;
+
+          @include rwd(650) {
+            width: 48px;
+            height: 48px;
+          }
+        }
+
+        i {
+          font-size: 20px;
+
+          @include rwd(650) {
+            font-size: 24px;
+          }
         }
       }
 
@@ -48,9 +80,12 @@
         z-index: 1;
         display: flex;
         align-items: center;
-        height: 60px;
+        justify-content: center;
+        height: 50px;
         padding-left: 30px;
         padding-right: 40px;
+        width: calc(100% - 24px);
+        font-size: 14px;
 
         &::before {
           content: "";
@@ -64,6 +99,24 @@
           border: 1px solid $primary;
           opacity: 0.7;
         }
+
+        @include rwd(860) {
+          width: auto;
+          margin-bottom: 0;
+        }
+
+        @include rwd(650) {
+          height: 60px;
+          font-size: 16px;
+        }
+      }
+
+      @include rwd(860) {
+        width: 80%;
+      }
+
+      @include rwd(650) {
+        width: auto;
       }
     }
 
@@ -72,10 +125,18 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
+      padding: 0 15px 15px;
 
       &-wrapper {
-        margin-top: 40px;
-        width: 80%;
+        width: 100%;
+
+        @include rwd(860) {
+          margin-top: 25px;
+        }
+
+        @include rwd(650) {
+          width: 80%;
+        }
       }
 
       .form {
@@ -87,16 +148,17 @@
           background-color: transparent;
           border: 1px solid $primary;
           font-family: $main-font;
-          font-size: 18px;
+          font-size: 14px;
           padding: 0 20px;
           outline: none;
           transition: border 0.3s linear;
 
           &__wrapper {
             position: relative;
-            max-width: 48%;
-            flex-basis: 48%;
-            height: 60px;
+            max-width: 100%;
+            flex-basis: 100%;
+            height: 50px;
+            margin-bottom: 15px;
 
             &::before {
               content: "";
@@ -110,10 +172,24 @@
               background-color: $black;
               opacity: 0.7;
             }
+
+            @include rwd(860) {
+              max-width: 48%;
+              flex-basis: 48%;
+            }
+
+            @include rwd(650) {
+              margin-bottom: 25px;
+              height: 60px;
+            }
           }
 
           &__invalid {
             border: 1px solid $red;
+          }
+
+          @include rwd(650) {
+            font-size: 18px;
           }
         }
 
@@ -124,7 +200,7 @@
           color: $white;
           background-color: transparent;
           font-family: $main-font;
-          font-size: 18px;
+          font-size: 14px;
           padding: 20px;
           resize: none;
           outline: none;
@@ -132,10 +208,10 @@
 
           &__wrapper {
             position: relative;
-            height: 200px;
+            height: 150px;
             max-width: 100%;
             flex-basis: 100%;
-            margin-top: 25px;
+            margin-bottom: 15px;
 
             &::before {
               content: "";
@@ -148,18 +224,38 @@
               background-color: $black;
               opacity: 0.7;
             }
+
+            @include rwd(650) {
+              margin-bottom: 25px;
+              height: 200px;
+            }
           }
 
           &__invalid {
             border: 1px solid $red;
           }
+
+          @include rwd(650) {
+            font-size: 18px;
+          }
         }
 
         &-btn {
           margin: 0 auto;
-          margin-top: 25px;
         }
       }
+
+      @include rwd(860) {
+        padding: 0;
+      }
+
+      @include rwd(650) {
+        padding-bottom: 25px;
+      }
+    }
+
+    @include rwd(650) {
+      width: 80%;
     }
   }
 }

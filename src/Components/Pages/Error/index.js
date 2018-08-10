@@ -2,16 +2,14 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
-import NotFoundIcon from "../../../img/error-404.svg";
-import ErrorIcon from "../../../img/error-file.svg";
+import NotFoundIcon from "./NotFoundIcon";
+import FatalErrorIcon from "./FatalErrorIcon";
 
 const ErrorHeader = ({ isGlobalError }) => (
   <div className="header-content header-content__error">
-    {isGlobalError ? (
-      <img className="header-content__error-img" src={ErrorIcon} alt="Error" />
-    ) : (
-      <img className="header-content__error-img" src={NotFoundIcon} alt="404" />
-    )}
+    <div className="header-content__error-img">
+      {isGlobalError ? <FatalErrorIcon /> : <NotFoundIcon />}
+    </div>
   </div>
 );
 

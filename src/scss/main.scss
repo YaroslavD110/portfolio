@@ -14,6 +14,10 @@ body {
   box-sizing: border-box;
 }
 
+main {
+  min-width: 320px;
+}
+
 // Common styles
 .btn {
   cursor: pointer;
@@ -131,6 +135,37 @@ body {
         animation: scale 5s infinite ease-out;
       }
     }
+  }
+}
+
+// Media query mixins
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin rwd($screen) {
+  @media (min-width: $screen+"px") {
+    @content;
   }
 }
 

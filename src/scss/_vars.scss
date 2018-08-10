@@ -1,3 +1,4 @@
+// Colors
 $primary: #512da8;
 $secondary: #4c416d;
 $secondary-alt: #5d9bc1;
@@ -6,4 +7,11 @@ $white: #f3e5f5;
 $gray: #ececec;
 $red: #ff1744;
 
+// Fonts
 $main-font: "Roboto", sans-serif;
+
+// Breakpoints
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;

@@ -5,45 +5,52 @@
   min-height: 100vh;
   background: $black no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
   color: $white;
   overflow: hidden;
 
   &-wrapper {
     position: relative;
+    min-height: 100vh;
     z-index: 2;
   }
 
   // Styles for inner content
   &-content {
-    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
 
     &__wrapper {
       position: relative;
       display: flex;
       justify-content: center;
       max-width: 960px;
+      min-height: calc(100vh - 54px);
       margin: 0 auto;
     }
 
     &__home {
       display: flex;
+      justify-content: center;
       flex-direction: column;
       align-items: center;
       max-width: 600px;
-      padding-top: 150px;
 
       &-subheading {
         font-weight: 400;
       }
 
       &-heading {
-        font-size: 50px;
+        text-align: center;
+        font-size: 40px;
         font-weight: 300;
         margin-top: 0;
 
         .accent-text {
           font-weight: 500;
+        }
+
+        @include sm {
+          font-size: 50px;
         }
       }
     }
@@ -55,7 +62,17 @@
 
       &-img {
         margin-top: 100px;
-        max-width: 360px;
+        max-width: 320px;
+        padding: 0 15px;
+
+        svg {
+          width: 100%;
+          height: auto;
+        }
+
+        @include sm {
+          max-width: 400px;
+        }
       }
     }
 
@@ -63,11 +80,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
 
       &-heading {
         font-size: 50px;
         font-weight: 300;
-        margin-top: 200px;
       }
 
       &-mouse {
@@ -76,7 +93,7 @@
         border-radius: 30px;
         height: 45px;
         width: 25px;
-        margin-top: 150px;
+        margin-top: 5%;
 
         &::before {
           content: "";
@@ -105,9 +122,10 @@
     &__wrapper {
       width: 100%;
       margin: 0;
+      padding: 0;
       display: flex;
-      justify-content: center;
       position: relative;
+      justify-content: center;
       z-index: 1;
 
       &::before {
@@ -136,7 +154,11 @@
 
     &__item {
       list-style: none;
-      margin: 0 10px;
+      margin: 0;
+
+      @include sm {
+        margin: 0 10px;
+      }
     }
 
     &__link {
@@ -145,7 +167,7 @@
       transition: color 0.3s linear;
       text-decoration: none;
       font-size: 20px;
-      padding: 15px 20px;
+      padding: 15px 10px;
 
       &:hover {
         color: $primary;
@@ -175,6 +197,14 @@
           bottom: -3px;
         }
       }
+
+      @include sm {
+        padding: 15px 20px;
+      }
     }
+  }
+
+  @include rwd(1023) {
+    background-attachment: fixed;
   }
 }

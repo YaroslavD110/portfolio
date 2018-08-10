@@ -6,7 +6,7 @@ const Modal = ({ children }) =>
 
 const PopUp = ({ children, toggleFunc }) => (
   <Modal>
-    <div className="popup-wrapper">
+    <div className="popup-wrapper" onClick={toggleFunc}>
       <div className="popup-close">
         <button className="popup-close__btn" onClick={toggleFunc}>
           <i className="material-icons">close</i>

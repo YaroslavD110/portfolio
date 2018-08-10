@@ -20,7 +20,7 @@ class App extends Component {
     const particlesParams = {
       particles: {
         number: {
-          value: 90
+          value: window.innerWidth > 560 ? 80 : 30
         },
         color: {
           value: "#f3e5f5"

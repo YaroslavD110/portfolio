@@ -1,12 +1,15 @@
 // Transition classes
 .toggle {
   &-enter {
+    position: absolute;
+    top: 0;
     animation-duration: 1s;
     animation-name: swap;
     animation-fill-mode: both;
   }
   &-exit {
     position: absolute;
+    top: 0;
     animation-duration: 1s;
     animation-name: swapRevers;
     animation-fill-mode: both;
@@ -66,16 +69,6 @@
   }
 }
 
-@keyframes spining {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes swapRevers {
   0% {
     opacity: 1;
@@ -87,6 +80,16 @@
     opacity: 0;
     transform-origin: 0 100%;
     transform: scale(0, 0) translate(-700px, 0px);
+  }
+}
+
+@keyframes spining {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
