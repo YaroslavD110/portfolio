@@ -205,6 +205,20 @@
                 }
               }
             }
+
+            &-loader {
+              min-height: 250px;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: $primary;
+
+              i {
+                animation: spining 1s linear infinite;
+                font-size: 55px;
+              }
+            }
           }
 
           @include xl {

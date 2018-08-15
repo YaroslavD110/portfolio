@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default class Work extends PureComponent {
   static propTypes = {
@@ -9,7 +10,12 @@ export default class Work extends PureComponent {
     previewSrc: PropTypes.string.isRequired
   };
 
+  state = { isImageLoaded: false };
+
+  _handleImageLoaded = () => this.setState({ isImageLoaded: true });
+
   render() {
+    const { isImageLoaded } = this.state;
     const { title, sourceCodeLink, demoLink, previewSrc } = this.props;
 
     return (
@@ -30,18 +36,24 @@ export default class Work extends PureComponent {
             >
               <i className="material-icons">code</i> Код роботи
             </a>
-            {demoLink !== undefined && (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="item-img__cover-link"
-                href={demoLink}
-              >
+            {demoLink && (
+              <Link className="item-img__cover-link" to={`/demo/${title}`}>
                 <i className="material-icons">important_devices</i> Демо роботи
-              </a>
+              </Link>
             )}
           </div>
-          <img src={previewSrc} alt="Work_image" className="item-img" />
+          <img
+            onLoad={this._handleImageLoaded}
+            style={isImageLoaded ? { display: "block" } : { display: "none" }}
+            src={previewSrc}
+            alt="Work_image"
+            className="item-img"
+          />
+          {!isImageLoaded && (
+            <div className="item-loader">
+              <i className="material-icons">autorenew</i>
+            </div>
+          )}
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 
 export default class Header extends Component {
@@ -6,7 +6,7 @@ export default class Header extends Component {
     const { location, pages } = this.props;
 
     return (
-      <section>
+      <Fragment>
         <Switch location={location}>
           {pages.map(page => (
             <Route
@@ -17,7 +17,7 @@ export default class Header extends Component {
             />
           ))}
         </Switch>
-      </section>
+      </Fragment>
     );
   }
 }

@@ -146,7 +146,7 @@ class Form extends Component {
             <div className="popup-content__contacts">
               {isShowPreloader && (
                 <div className="popup-content__contacts-icon">
-                  <i class="material-icons">autorenew</i>
+                  <i className="material-icons">autorenew</i>
                 </div>
               )}
 

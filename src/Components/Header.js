@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 
-import hidePagePreloader from "../Actions/HidePagePreloader";
+import { hidePreloader } from "../Actions/PagePreloader";
 
 import Navigation from "./Navigation";
 import ErrorPage from "./Pages/Error";
@@ -14,19 +14,21 @@ class Header extends Component {
     pages: PropTypes.array.isRequired,
     isGlobalError: PropTypes.bool.isRequired,
     headerBg: PropTypes.string,
-    hidePagePreloader: PropTypes.func.isRequired
+    hidePreloader: PropTypes.func.isRequired
   };
 
   state = { showHeaderBg: false };
 
   bgLoaded = e => {
     this.setState({ showHeaderBg: true });
-    this.props.hidePagePreloader();
+    this.props.hidePreloader();
     e.target.remove();
   };
 
   render() {
     const { location, pages, isGlobalError, headerBg } = this.props;
+
+    if (/^\/demo\/.*$/.test(location.pathname) && !isGlobalError) return null;
 
     return (
       <header
@@ -35,7 +37,7 @@ class Header extends Component {
           this.state.showHeaderBg ? { backgroundImage: `url(${headerBg})` } : {}
         }
       >
-        {headerBg !== undefined && (
+        {headerBg && (
           <img
             src={headerBg}
             alt="loader_img"
@@ -75,7 +77,5 @@ export default connect(
     isGlobalError: state.Errors.isGlobalError,
     headerBg: state.AppSettings.headerBg
   }),
-  dispatch => ({
-    hidePagePreloader: () => dispatch(hidePagePreloader())
-  })
+  { hidePreloader }
 )(Header);

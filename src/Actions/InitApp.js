@@ -3,7 +3,8 @@ import {
   WORKS_DATA_REQUEST_SUCCESS,
   APP_SETTINGS_REQUEST,
   APP_SETTINGS_REQUEST_SUCCESS,
-  HANDLE_ERROR
+  HANDLE_ERROR,
+  HIDE_PAGE_PRELOADER
 } from "../ActionTypes";
 
 import getAllWorksData from "../api/getAllWorksData";
@@ -14,7 +15,10 @@ export const GetWorksData = () => (dispatch, getState) => {
 
   getAllWorksData
     .then(res => dispatch({ type: WORKS_DATA_REQUEST_SUCCESS, payload: res }))
-    .catch(error => dispatch({ type: HANDLE_ERROR, payload: error }));
+    .catch(error => {
+      dispatch({ type: HIDE_PAGE_PRELOADER });
+      dispatch({ type: HANDLE_ERROR, payload: error });
+    });
 };
 
 export const GetPageSettings = () => (dispatch, getState) => {
@@ -22,5 +26,8 @@ export const GetPageSettings = () => (dispatch, getState) => {
 
   getAppSettings
     .then(res => dispatch({ type: APP_SETTINGS_REQUEST_SUCCESS, payload: res }))
-    .catch(error => dispatch({ type: HANDLE_ERROR, payload: error }));
+    .catch(error => {
+      dispatch({ type: HIDE_PAGE_PRELOADER });
+      dispatch({ type: HANDLE_ERROR, payload: error });
+    });
 };

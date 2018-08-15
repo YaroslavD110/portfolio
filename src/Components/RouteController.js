@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Route } from "react-router-dom";
 
+import DemoPage from "./Pages/Demo";
 import Header from "./Header";
 import Content from "./Content";
 
@@ -10,6 +11,7 @@ export default class RouterController extends Component {
   render() {
     return (
       <main>
+        <Route exact path="/demo/:demoName" component={DemoPage} />
         <Route
           render={({ location }) => (
             <Fragment>

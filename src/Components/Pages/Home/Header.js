@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
 
 import PopUp from "../../PopUp.js";
 
@@ -40,20 +41,29 @@ class HomeHeader extends Component {
               </h2>
               {cvs && (
                 <div className="popup-content__cv-links">
-                  {cvs.ua && (
-                    <a href={cvs.ua} className="popup-content__cv-link">
+                  {cvs.resumeUA && (
+                    <Link
+                      to="/demo/resumeUA"
+                      className="popup-content__cv-link"
+                    >
                       Українська
-                    </a>
+                    </Link>
                   )}
-                  {cvs.ru && (
-                    <a href={cvs.ru} className="popup-content__cv-link">
+                  {cvs.resumeRU && (
+                    <Link
+                      to="/demo/resumeRU"
+                      className="popup-content__cv-link"
+                    >
                       Російська
-                    </a>
+                    </Link>
                   )}
-                  {cvs.en && (
-                    <a href={cvs.en} className="popup-content__cv-link">
+                  {cvs.resumeEN && (
+                    <Link
+                      to="/demo/resumeUA"
+                      className="popup-content__cv-link"
+                    >
                       Англійська
-                    </a>
+                    </Link>
                   )}
                 </div>
               )}
